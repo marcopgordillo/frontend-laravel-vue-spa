@@ -25,7 +25,7 @@
       class="mb-4"
     />
     <BaseBtn type="submit" text="Update" />
-    <FlashMessage :message="message" :error="error" />
+    <FlashMessage :message="form.message" :error="form.error" />
   </form>
 </template>
 
@@ -34,6 +34,7 @@ import { reactive } from 'vue'
 
 import { getError } from "@/utils/helpers";
 import AuthService from "@/services/AuthService";
+import BaseInput from "@/components/BaseInput.vue";
 import BaseBtn from "@/components/BaseBtn.vue";
 import FlashMessage from "@/components/FlashMessage.vue";
 

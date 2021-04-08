@@ -37,7 +37,8 @@ export default {
     return authClient.post("/forgot-password", payload)
   },
   getAuthUser() {
-    return authClient.get("/api/user")
+    const authUser = store.getters['auth/authUser']
+    return authClient.get(`/api/users/${authUser.id}`)
   },
   async resetPassword(payload) {
     await authClient.get("/sanctum/csrf-cookie")

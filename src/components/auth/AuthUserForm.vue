@@ -18,13 +18,13 @@
       class="mb-4"
     />
     <BaseBtn text="Update" />
-    <FlashMessage :message="message" :error="error" />
+    <FlashMessage :message="form.message" :error="form.error" />
   </form>
 </template>
 
 <script setup>
 import { reactive, computed, onMounted } from 'vue'
-import { mapGetters, useStore } from 'vuex'
+import { useStore } from 'vuex'
 
 import { getError } from '@/utils/helpers'
 import AuthService from '@/services/AuthService'
@@ -33,7 +33,7 @@ import BaseInput from '@/components/BaseInput.vue'
 import FlashMessage from '@/components/FlashMessage.vue'
 
 const store = useStore()
-const authUser = computed(() => mapGetters(['auth/authUser']))
+const authUser = computed(() => store.getters['auth/authUser'])
 
 const form = reactive({
   name: null,
@@ -58,8 +58,8 @@ const updateUser = () => {
 }
 
 onMounted(() => {
-  form.name = authUser.name
-  form.email = authUser.email
+  form.name = authUser.value.name
+  form.email = authUser.value.email
 })
 </script>
 

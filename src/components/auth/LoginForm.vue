@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="login">
+  <form class="p-5 bg-white border rounded shadow" @submit.prevent="login">
     <BaseInput
       type="email"
       label="Email"
@@ -23,6 +23,7 @@
     </div>
     <FlashMessage :error="form.error" />
   </form>
+  <Logout />
 </template>
 
 <script setup>
@@ -35,6 +36,7 @@ import AuthService from '@/services/AuthService'
 import BaseBtn from '@/components/BaseBtn.vue'
 import BaseInput from '@/components/BaseInput.vue'
 import FlashMessage from '@/components/FlashMessage.vue'
+import Logout from '@/components/auth/Logout.vue'
 
 const router = useRouter()
 const store = useStore()

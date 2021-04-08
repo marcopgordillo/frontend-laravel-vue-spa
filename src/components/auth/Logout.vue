@@ -10,10 +10,9 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
 import { useStore } from 'vuex'
 import { LogoutIcon } from '@heroicons/vue/solid'
 
 const store = useStore()
-const logout = computed(() => store.dispatch('auth/logout'))
+const logout = () => store.dispatch('auth/logout')
 </script>

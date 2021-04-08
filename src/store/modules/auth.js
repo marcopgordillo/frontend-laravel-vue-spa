@@ -1,6 +1,6 @@
 import AuthService from '@/services/AuthService'
 import { getError } from '@/utils/helpers'
-
+import router from '@/router'
 
 export default {
   namespaced: true,
@@ -28,7 +28,7 @@ export default {
       return AuthService.logout()
         .then(() => {
           commit('SET_USER', null)
-          this.$router.push({ name: 'login' })
+          router.push({ name: 'login' })
         })
         .catch((error) => commit('SET_ERROR', getError(error)))
     },
@@ -36,7 +36,7 @@ export default {
       commit('SET_LOADING', true)
       return AuthService.getAuthUser()
         .then(response => {
-          commit('SET_USER', response.data.data)
+          commit('SET_USER', response.data)
           commit('SET_LOADING', false)
         })
         .catch(error => {
@@ -51,7 +51,7 @@ export default {
       return state.user
     },
     isAdmin (state) {
-      return state.user.isAdmin
+      return state.user?.isAdmin
     },
     error (state) {
       return state.error

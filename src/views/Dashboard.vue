@@ -17,10 +17,12 @@
 
 <script setup>
 import { computed } from 'vue'
-import { mapGetters } from 'vuex'
+import { useStore } from 'vuex'
 
 import Messages from '@/components/Messages.vue'
 import MessageForm from '@/components/MessageForm.vue'
 
-const authUser = computed(() => mapGetters(['auth/authUser']))
+const store = useStore()
+
+const authUser = computed(() => store.getters['auth/authUser'])
 </script>

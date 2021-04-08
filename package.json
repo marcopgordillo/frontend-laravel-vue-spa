@@ -1,11 +1,11 @@
 {
   "name": "frontend-laravel-vue-spa",
   "version": "0.0.0",
-  "license": "MIT",
   "scripts": {
-    "dev": "vite",
+    "serve": "vite preview",
     "build": "vite build",
-    "serve": "vite preview"
+    "lint": "vue-cli-service lint",
+    "dev": "vite"
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.0",
@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.2.1",
+    "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.5",
     "autoprefixer": "^10.2.5",
     "eslint": "^7.23.0",
@@ -24,5 +25,6 @@
     "postcss": "^8.2.9",
     "tailwindcss": "^2.1.1",
     "vite": "^2.1.5"
-  }
+  },
+  "license": "MIT"
 }
